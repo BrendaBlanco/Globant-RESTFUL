@@ -1,7 +1,7 @@
 package servicio;
 
 import java.sql.Date;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import entidad.Persona;
 import repositorio.RepositorioPersona;
@@ -11,8 +11,14 @@ import java.util.List;
 @Service
 public class PersonaServicio {
 
-    @Autowired	
-	private RepositorioPersona repositorio;
+    //@Autowired	
+	//private RepositorioPersona repositorio;
+	
+	private final RepositorioPersona repositorio;
+
+    public PersonaServicio(RepositorioPersona repositorio) {
+        this.repositorio = repositorio;
+    }
     
     public Persona grabarPersona(Persona persona) {
     	return repositorio.save(persona);
